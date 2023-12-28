@@ -9,23 +9,11 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Microcontrolador Arduino UNO</td>
-            <td>50000</td>
-            <button class="btn btn-outline-primary" [routerLink]="['/products', 'blue', 'Arduino']">Detalles</button>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Display 16x2</td>
-            <td>20000</td>
-            <button class="btn btn-outline-primary" [routerLink]="['/products', 'green', 'Display-16x2']">Detalles</button>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Celdas de cargas</td>
-            <td>10000</td>
-            <button class="btn btn-outline-primary" [routerLink]="['/products', 'gray', 'Celdas de carga']">Detalles</button>
+        <tr *ngFor="let product of productList">
+            <th scope="row">{{product.id}}</th>
+            <td>{{product.name}}</td>
+            <td>{{product.price | currency}}</td>
+            <button class="btn btn-outline-primary" [routerLink]="['/products', product.name]">Detalles</button>
         </tr>
     </tbody>
 </table>
