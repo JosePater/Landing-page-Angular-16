@@ -13,6 +13,7 @@ export class ProductDetailComponent implements OnInit {
   loading: boolean = true;
   product?: TypeProduct;
   productList: TypeProduct[] = productsList;
+  colorValue: string = '';
 
   constructor(private _route: ActivatedRoute) {}
 
@@ -23,6 +24,7 @@ export class ProductDetailComponent implements OnInit {
 
     this._route.params.subscribe((params) => {
       this.product = this.productList.find(product => product.id == params['productId']);
+      this.colorValue = this.product?.price as number > 10000 ? 'red' : 'black';
       // console.log(this.product);
     });
   }
