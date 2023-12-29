@@ -12,8 +12,9 @@
             <label for="email" class="form-label">Email</label>
             <input [ngClass]="{'is-invalid': hasErrors('email','required') || hasErrors('email', 'email')}"
             type="email" class="form-control" id="email" formControlName="email">
-            <div class="text-danger" *ngIf="hasErrors('email','required')">Email inválido</div>
+            <div class="text-danger" *ngIf="hasErrors('email','required')">Email requerido</div>
+            <div class="text-danger" *ngIf="hasErrors('email','email')">Email inválido</div>
         </div>
-        <button type="submit" class="btn btn-primary">Enviar</button>
+        <button type="submit" [disabled]="!formularioContacto.valid" class="btn btn-primary">Enviar</button>
     </form>
 </div>

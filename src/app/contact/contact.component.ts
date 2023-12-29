@@ -26,6 +26,7 @@ export class ContactComponent {
   }
 
   enviar(): void {
-    console.log(this.formularioContacto.value);
+    console.log(this.formularioContacto);
+    alert("Formulario enviado!!!");
   }
 }
