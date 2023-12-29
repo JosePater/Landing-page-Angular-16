@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -6,8 +6,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css'],
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit{
   formularioContacto: FormGroup;
+  usuarioLogeado: string = 'José Paternina';
 
   constructor(private form: FormBuilder) {
     // Validadores
@@ -15,6 +16,11 @@ export class ContactComponent {
       nombre: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
     });
+  }
+
+  ngOnInit(): void {
+    this.formularioContacto.get('nombre')?.setValue(this.usuarioLogeado);
+    this.formularioContacto.get('nombre')?.disable();
   }
 
   // Campos inválidos
