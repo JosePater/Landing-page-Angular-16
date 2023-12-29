@@ -24,8 +24,9 @@
             </select>
             <div class="text-danger" *ngIf="hasErrors('tipoDni','required')">* Tipo documento requerido requerido</div>
         </div>
-        <dni-input [tipoDni]="tipoDni"/>
-
+        <div class="mb-3" *ngIf="mostrarDni" >
+            <dni-input [tipoDni]="tipoDni"/>
+        </div>
         <div class="mb-3">
             <label for="email" class="form-label">Email:</label>
             <input [ngClass]="{'is-invalid': hasErrors('email','required') || hasErrors('email', 'email')}"

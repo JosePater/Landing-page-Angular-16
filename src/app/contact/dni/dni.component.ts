@@ -9,7 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class DniComponent implements OnChanges {
   @Input() tipoDni: string = 'DNI';
   formularioDocumento: FormGroup;
-  variableNueva: string = 'NÚMERO ID';
+
 
   constructor(private form: FormBuilder) {
     this.formularioDocumento = this.form.group({
@@ -19,10 +19,7 @@ export class DniComponent implements OnChanges {
   }
   // Cuando algo cambia dentro del componente
   ngOnChanges(changes: SimpleChanges): void {
-    // console.log(changes?.['tipoDni'].currentValue);
-    // Si no hubo cambios se deja el nombre de inicio de variableNueva
-    this.variableNueva = !changes?.['tipoDni'].firstChange ? changes?.['tipoDni'].currentValue: this.variableNueva;
-
+    console.log(changes?.['tipoDni'].currentValue); // Muestra la opción seleccionada
   }
 
     // Campos inválidos

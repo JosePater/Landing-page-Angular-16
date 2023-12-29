@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { DniComponent } from './dni/dni.component';
 
 @Component({
   selector: 'app-contact',
@@ -10,6 +9,7 @@ import { DniComponent } from './dni/dni.component';
 export class ContactComponent implements OnInit, OnDestroy{
   formularioContacto: FormGroup;
   tipoDni: string = 'DNI';
+  mostrarDni: boolean = false; // Para que cuando se seleccione el tipo de DNI se muestre el campo (ID)
 
   constructor(private form: FormBuilder) {
     // Validadores
@@ -25,6 +25,7 @@ export class ContactComponent implements OnInit, OnDestroy{
     // Set valor a tipo de documento (tipoDni)
     this.formularioContacto.get('tipoDni')?.valueChanges.subscribe(value => {
       this.tipoDni = value;
+      this.mostrarDni = value != ''; // Campo ID
     })
   }
 
