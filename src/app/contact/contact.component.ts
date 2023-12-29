@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DniComponent } from './dni/dni.component';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css'],
 })
-export class ContactComponent implements OnInit{
+export class ContactComponent implements OnInit, OnDestroy{
   formularioContacto: FormGroup;
   tipoDni: string = 'DNI';
 
@@ -16,7 +17,6 @@ export class ContactComponent implements OnInit{
       nombre: ['', [Validators.required, Validators.minLength(3)]],
       apellido: ['', [Validators.required, Validators.minLength(3)]],
       tipoDni: ['', Validators.required],
-      dni: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
     });
   }
@@ -26,6 +26,10 @@ export class ContactComponent implements OnInit{
     this.formularioContacto.get('tipoDni')?.valueChanges.subscribe(value => {
       this.tipoDni = value;
     })
+  }
+
+  ngOnDestroy(): void {
+    console.log("Se ha destruido el componente Contact!");
   }
 
   // Campos inválidos
