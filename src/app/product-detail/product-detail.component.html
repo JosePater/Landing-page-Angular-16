@@ -1,6 +1,6 @@
 <ng-container>
-  <h1>Producto: {{ product?.title }}</h1>
-  <h2 [ngStyle]="{color: colorValue}">Precio: {{ product?.price | currency }}</h2>
+  <h1>Product: {{ product?.title }}</h1>
+  <h2 [ngStyle]="{color: colorValue}">Price: {{ product?.price | currency }}</h2>
   <!-- Si no tiene descripción, no la muestra -->
-  <h3 *ngIf="product?.description">Descripción: {{ product?.description }}</h3>
+  <h3 *ngIf="product?.description">Description: {{ product?.description }}</h3>
 </ng-container>
