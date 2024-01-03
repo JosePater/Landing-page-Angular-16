@@ -1,8 +1,18 @@
-<ng-container *ngIf="product?.title">
-  <h1>Product: {{ product?.title }}</h1>
-  <h2 [ngStyle]="{color: colorValue}">Price: {{ product?.price | currency }}</h2>
-  <!-- Si no tiene descripción, no la muestra -->
-  <h3 *ngIf="product?.description">Description: {{ product?.description }}</h3>
-</ng-container>
-
-<ng-container *ngIf="!product">Loading...</ng-container>
+<div class="container">
+  <ng-container *ngIf="product?.title">
+    <div class="card">
+      <img src={{product?.image}} class="card-img-top" alt={{product?.title}}>
+      <div class="card-body">
+        <h5 class="card-title">{{product?.title}}</h5>
+        <h5 [ngStyle]="{color: colorValue}">Price: {{product?.price | currency}}</h5>
+        <p class="card-text">{{product?.description}}</p>
+        <p class="card-text"><small class="text-body-secondary">Last updated 2 days ago</small></p>
+        <button class="btn btn-primary">Add to car</button>
+      </div>
+    </div>
+  </ng-container> 
+  
+  <ng-container *ngIf="!product?.title">
+    <i style="color: blue;">Loading...</i>
+  </ng-container>
+</div>
