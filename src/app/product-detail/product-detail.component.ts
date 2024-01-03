@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { TypeProduct, productsList } from '../products/products.mock';
 import { timeout } from 'rxjs';
+import { IProduct } from '../models/product.model';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -9,23 +10,25 @@ import { timeout } from 'rxjs';
   styleUrls: ['./product-detail.component.css'],
 })
 export class ProductDetailComponent implements OnInit {
-  
-  loading: boolean = true;
-  product?: TypeProduct;
-  productList: TypeProduct[] = productsList;
+  product?: IProduct;
   colorValue: string = '';
 
-  constructor(private _route: ActivatedRoute) {}
+  constructor(
+    private _route: ActivatedRoute,
+    private _apiService: ApiService
+  ) {}
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.loading = false;
-    }, 1500);
-
+    // Ruta
     this._route.params.subscribe((params) => {
-      this.product = this.productList.find(product => product.id == params['productId']);
-      this.colorValue = this.product?.price as number > 10000 ? 'red' : 'black';
-      // console.log(this.product);
+      this._apiService // Servicio de los métodos de los productos (CREAD)
+        .getProduct(Number(params['productId']))
+        .subscribe((data: IProduct) => {
+          console.log('data: ', data);
+          this.product = data;
+          this.colorValue =
+            (this.product?.price as number) > 200 ? 'red' : 'blue';
+        });
     });
   }
 }

@@ -1,8 +1,6 @@
-<ng-container *ngIf="!loading">
-  <h1>Producto: {{ product?.name }}</h1>
+<ng-container>
+  <h1>Producto: {{ product?.title }}</h1>
   <h2 [ngStyle]="{color: colorValue}">Precio: {{ product?.price | currency }}</h2>
   <!-- Si no tiene descripción, no la muestra -->
-  <h3 *ngIf="product?.descrip">Descripción: {{ product?.descrip }}</h3>
+  <h3 *ngIf="product?.description">Descripción: {{ product?.description }}</h3>
 </ng-container>
-
-<ng-container *ngIf="loading"><i style="color: blue;">Cargando producto...</i></ng-container>
