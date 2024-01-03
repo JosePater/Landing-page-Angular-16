@@ -3,17 +3,17 @@
     <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Producto</th>
-            <th scope="col">Precio</th>
-            <th scope="col">Detalle</th>
+            <th scope="col">Product</th>
+            <th scope="col">Price</th>
+            <th scope="col">Detail</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let product of productList">
+        <tr *ngFor="let product of productsList">
             <th scope="row">{{product.id}}</th>
-            <td>{{product.name}}</td>
-            <td [ngClass]="{'red-color': product.price > 10000}">{{product.price | currency}}</td>
-            <button class="btn btn-outline-primary" [routerLink]="['/products', product.id]">Detalles</button>
+            <td>{{product.title}}</td>
+            <td [ngClass]="{'red-color': product.price > 200}">{{product.price | currency}}</td>
+            <button class="btn btn-outline-primary" [routerLink]="['/products', product.id]">View details</button>
         </tr>
     </tbody>
 </table>
