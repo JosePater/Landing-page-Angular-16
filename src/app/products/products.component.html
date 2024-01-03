@@ -1,19 +1,23 @@
-<h1>Productos electrónicos</h1>
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Product</th>
-            <th scope="col">Price</th>
-            <th scope="col">Detail</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let product of productsList">
-            <th scope="row">{{product.id}}</th>
-            <td>{{product.title}}</td>
-            <td [ngClass]="{'red-color': product.price > 200}">{{product.price | currency}}</td>
-            <button class="btn btn-outline-primary" [routerLink]="['/products', product.id]">View details</button>
-        </tr>
-    </tbody>
-</table>
+<ng-container *ngIf="productsList?.[0]">
+    <h1>Products</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Product</th>
+                <th scope="col">Price</th>
+                <th scope="col">Detail</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of productsList">
+                <th scope="row">{{product.id}}</th>
+                <td>{{product.title}}</td>
+                <td [ngClass]="{'red-color': product.price > 200}">{{product.price | currency}}</td>
+                <button class="btn btn-outline-primary" [routerLink]="['/products', product.id]">View details</button>
+            </tr>
+        </tbody>
+    </table>
+</ng-container>
+
+<ng-container *ngIf="productsList">Loading...</ng-container>
