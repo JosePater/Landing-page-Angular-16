@@ -1,3 +1,10 @@
 .red-color{
     color: red;
 }
+
+.center {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    height: auto;
+}
