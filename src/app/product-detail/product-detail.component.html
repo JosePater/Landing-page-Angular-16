@@ -1,5 +1,6 @@
 <div class="container">
-  <ng-container *ngIf="product?.title">
+  <!-- if -->
+  <ng-container *ngIf="product?.title; else nullProduct">
     <div class="card">
       <img src={{product?.image}} class="card-img-top" alt={{product?.title}}>
       <div class="card-body">
@@ -11,8 +12,8 @@
       </div>
     </div>
   </ng-container> 
-  
-  <ng-container *ngIf="!product?.title">
+  <!-- else -->
+  <ng-template #nullProduct>
     <i style="color: blue;">Loading...</i>
-  </ng-container>
+  </ng-template>
 </div>
