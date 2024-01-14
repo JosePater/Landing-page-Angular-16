@@ -1,4 +1,4 @@
-# Acerca de la páginas web
+# Acerca de la página web
 
 La página contine 4 rutas incluyendo la 404:
 
