@@ -17,6 +17,7 @@ export class ContactComponent implements OnInit, OnDestroy{
       nombre: ['', [Validators.required, Validators.minLength(3)]],
       apellido: ['', [Validators.required, Validators.minLength(3)]],
       tipoDni: ['', Validators.required],
+      dni: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
     });
   }
@@ -44,5 +45,7 @@ export class ContactComponent implements OnInit, OnDestroy{
   enviar(): void {
     console.log(this.formularioContacto);
     alert("Formulario enviado!!!");
+    this.formularioContacto.reset();
+    this.mostrarDni = false;
   }
 }

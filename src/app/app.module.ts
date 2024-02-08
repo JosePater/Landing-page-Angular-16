@@ -8,7 +8,6 @@ import { HomeComponent } from './home/home.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ContactComponent } from './contact/contact.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DniComponent } from './contact/dni/dni.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NotFoundComponent } from './not-found/not-found.component'
 
@@ -19,7 +18,6 @@ import { NotFoundComponent } from './not-found/not-found.component'
     HomeComponent,
     ProductDetailComponent,
     ContactComponent,
-    DniComponent,
     NotFoundComponent
   ],
   imports: [
